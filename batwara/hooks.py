@@ -1,7 +1,7 @@
 app_name = "batwara"
 app_title = "Batwara"
-app_publisher = "build with nada "
-app_description = "simple "
+app_publisher = "nada"
+app_description = "simple app"
 app_email = "enadaragab2020@gmail.com"
 app_license = "agpl-3.0"
 

@@ -1,6 +1,6 @@
 ## Batwara
 
-simple 
+simple app
 
 #### License
 
