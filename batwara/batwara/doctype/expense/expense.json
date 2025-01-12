@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-10 17:07:52.032999",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "paid",
+  "column_break_gdgb",
+  "split_method",
+  "section_break_uorc",
+  "spilts",
+  "section_break_nsdi",
+  "date_ripp",
+  "amount",
+  "currency",
+  "column_break_rqoj",
+  "description",
+  "notes",
+  "section_break_0hjv",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_0hjv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Expense",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date_ripp",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rqoj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "non_negative": 1,
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "default": "EGP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "paid",
+   "fieldtype": "Link",
+   "label": "Paid By",
+   "options": "User"
+  },
+  {
+   "fieldname": "section_break_nsdi",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "spilts",
+   "fieldtype": "Table",
+   "label": "Spilts",
+   "options": "Expense Split"
+  },
+  {
+   "fieldname": "column_break_gdgb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "equally",
+   "fieldname": "split_method",
+   "fieldtype": "Select",
+   "label": "Split Method",
+   "options": "equally\nmanual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_uorc",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-10 18:37:38.705502",
+ "modified_by": "Administrator",
+ "module": "Batwara",
+ "name": "Expense",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
