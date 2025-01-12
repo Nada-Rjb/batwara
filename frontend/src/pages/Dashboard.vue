@@ -4,7 +4,7 @@
       <div v-if="friends.length">
         <ol>
           <li v-for="friend in friends" :key="friend">
-            {{ friend }}
+            {{ friend.a }}
           </li>
         </ol>
       </div>
@@ -21,14 +21,14 @@
   
   
   const FriendResource = createListResource({
-    doctype: "User",
-    field: ["full_name"], 
+    doctype: "Friend Mapping",
+    field: ["*"], 
     auto: true,
   });
   
 
   const friends = computed(() => {
-    return FriendResource.list.data || []});
+    return FriendResource.list.data});
   
   // Debugging logs
   console.log(FriendResource.list); // Inspect the resource list
