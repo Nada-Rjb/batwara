@@ -2,13 +2,23 @@
     <div>
       <h2 class="font-bold text-gray-900">Your Friends</h2>
       <div v-if="friends.length">
-        <ol>
-          <li v-for="friend in friends" :key="friend">
-            {{ friend.a }}
+        <ol class="fex space-y-3 mt-4">
+          <li class = "flex items-center space-x-4" v-for="friend in friends" :key="friend">
+                <Avatar
+                :shape="'circle'"
+                :ref_for="true"
+                :url= "friend.user_image"
+                :label=friend.full_name
+                />
+                <div>
+                    {{ friend.full_name }}
+                </div>
+                
+            
           </li>
         </ol>
       </div>
-      <div v-else>
+      <div v-else>              
         <p>No friends found.</p>
       </div>
     </div>
@@ -16,22 +26,27 @@
   
   <script setup>
   import { computed } from "vue";
-  import { createListResource } from "frappe-ui";
+  import { createListResource,Avatar } from "frappe-ui";
   import { sessionUser } from "../data/session";
   
   
   const FriendResource = createListResource({
     doctype: "Friend Mapping",
-    field: ["*"], 
+    fields: ["b as friend","b.full_name as full_name","b.user_image as user_image"], 
+    filters:{
+        "a":sessionUser() //current user 
+    },
+    orderBy: "b",
     auto: true,
-  });
+  })
   
-
   const friends = computed(() => {
-    return FriendResource.list.data});
-  
-  // Debugging logs
-  console.log(FriendResource.list); // Inspect the resource list
-  console.log(FriendResource);
+        return FriendResource.list.data || [];
+    
+   
+})
+
+
+ 
   </script>
   
