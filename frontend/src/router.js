@@ -13,6 +13,12 @@ const routes = [
     path: '/account/login',
     component: () => import('@/pages/Login.vue'),
   },
+  {
+    path: '/new-expense',
+    name: 'CreateExpense',
+    component: () => import('@/pages/CreateNewExpense.vue'),
+
+  }
 
 ]
 

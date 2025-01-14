@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h2 class="font-bold text-gray-900">Your Friends</h2>
+       <PageHeader heading="Your Friends"/> 
       <div v-if="friends.length">
         <ol class="fex space-y-3 mt-4">
           <li class = "flex items-center space-x-4" v-for="friend in friends" :key="friend">
@@ -13,21 +13,46 @@
                 <div>
                     {{ friend.full_name }}
                 </div>
-                
-            
           </li>
         </ol>
       </div>
       <div v-else>              
         <p>No friends found.</p>
       </div>
+      <div class="mt-4">
+        <Button
+            :variant="'solid'"
+            :ref_for="true"
+            theme="blue"
+            size="sm"
+            label="+ Add Expence"
+            :loading="false"
+            :loadingText="null"
+            :disabled="false"
+            :route="'/new-expense'"  
+            @click="addExpense"
+        >
+            + Add Expence 
+        </Button>
+        <h1>{{ count }}</h1>
+        <Rating
+            size="md"
+            label="Rating"
+            v-if="count===1"
+            v-model="rateing"
+
+        />
+        <h1>{{rateing}}</h1>
+</div>
     </div>
   </template>
   
   <script setup>
-  import { computed } from "vue";
-  import { createListResource,Avatar } from "frappe-ui";
+  import { computed ,ref } from "vue";
+  import { createListResource,Avatar ,Button ,Rating } from "frappe-ui";
   import { sessionUser } from "../data/session";
+  import PageHeader from "../componants/common/PageHeader.vue";
+  import { inject } from "vue";
   
   
   const FriendResource = createListResource({
@@ -40,12 +65,17 @@
     auto: true,
   })
   
-  const friends = computed(() => {
-        return FriendResource.list.data || [];
-    
-   
-})
-
+  const friends = inject(friends)
+  
+const count = ref(0);
+const rateing=ref(0)
+function addExpense() {
+    if (count.value === 1) {
+        count.value = 0;
+    } else if (count.value === 0) {
+        count.value = 1;  
+    }
+}
 
  
   </script>
