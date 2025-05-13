@@ -7,9 +7,12 @@ import resourceManager from "../../../doppio/libs/resourceManager";
 import call from "../../../doppio/libs/controllers/call";
 import socket from "../../../doppio/libs/controllers/socket";
 import Auth from "../../../doppio/libs/controllers/auth";
+import { FrappeUI } from 'frappe-ui'
+
 
 const app = createApp(App);
 const auth = reactive(new Auth());
+
 
 // Plugins
 app.use(router);
@@ -42,3 +45,6 @@ router.beforeEach(async (to, from, next) => {
 });
 
 app.mount("#app");
+
+
+app.use(FrappeUI)

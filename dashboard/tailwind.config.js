@@ -7,3 +7,10 @@ export default {
   plugins: [],
 }
 
+module.exports = {
+  presets: [
+    require('frappe-ui/src/utils/tailwind.config')
+  ],
+  ...
+}
+

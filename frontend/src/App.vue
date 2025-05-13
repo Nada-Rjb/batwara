@@ -5,13 +5,22 @@
 </template>
 
 <script setup>
-  import { computed, provide } from "vue"; 
-  import { getFriendListResource } from "@/data/friends.js"
+import { computed, provide } from "vue"; 
+import { getFriendListResource } from "@/data/friends.js"
 
-  const FriendList = getFriendListResource();
-  const friends = computed(() => {
-    return FriendList.list.data || [];
-  });
+const FriendList = getFriendListResource();
+const friends = computed(() => {
+  return FriendList.list.data || [];
+});
 
-  provide("friends", friends); 
+provide("friends", friends); 
 </script>
+
+<style scoped>
+.track {
+  appearance: none;
+  background: #000;
+  height: var(--trackHeight);
+  border-radius: 999px;
+}
+</style>
